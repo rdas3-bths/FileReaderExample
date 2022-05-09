@@ -10,6 +10,7 @@ public class PersonRunner {
             int line = 1;
             String name = "";
             String hobby = "";
+            // reading from the file line by line
             while (s.hasNextLine()) {
                 String data = s.nextLine();
                 if (line == 1) {
@@ -47,6 +48,7 @@ public class PersonRunner {
             System.out.println("Data saved! Good bye!");
 
         }
+        // if the file doesn't exist, we will create a blank Person object and ask them for a name and hobby
         catch (FileNotFoundException e) {
             Person p = new Person();
             System.out.println(p.greet());

@@ -41,10 +41,11 @@ public class Person {
         }
     }
 
+    // This method is an example of how to take some information and write it into a file!
     public void save() {
         try {
             File f = new File("src/person.data");
-            f.createNewFile();
+            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
             FileWriter fw = new FileWriter("src/person.data");
             fw.write(name + "\n");
             fw.write(hobby);
