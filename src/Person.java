@@ -1,0 +1,58 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
+
+public class Person {
+    private String name;
+    private String hobby;
+
+    public Person() {
+        name = "";
+        hobby = "";
+    }
+
+    public Person(String name, String hobby) {
+        this.name = name;
+        this.hobby = hobby;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public String greet() {
+        if (name.equals("") && hobby.equals("")) {
+            return "Hello! Please introduce yourself!";
+        }
+        else {
+            return "Name: " + name + "\n" + "Hobby: " + hobby;
+        }
+    }
+
+    public void save() {
+        try {
+            File f = new File("src/person.data");
+            f.createNewFile();
+            FileWriter fw = new FileWriter("src/person.data");
+            fw.write(name + "\n");
+            fw.write(hobby);
+            fw.close();
+        }
+        catch (IOException e) {
+            System.out.println("Unable to create file");
+            e.printStackTrace();
+        }
+    }
+}
